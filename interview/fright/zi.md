@@ -16,13 +16,51 @@ zset 跳表结构 详细说说
 输入  1->1->1->2->3->4->4​
 输出   2->3​
 
-public class ListNode {​
-     int val;​
-     ListNode next;​
-     ListNode() {}​
-     ListNode(int val) { this.val = val; }​
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }​
-}​
+
+
+
+
+
+mysql热点数据写入？
+redis热点数据写入？
+
+账户热点数据写入？
+
+
+多机房之前的断联数据丢失问题 如何处理？
+
+
+
+求123的全排列字符串
+
+
+
+
+
+
+func A() {
+	
+}
+
+
+
+<!--  自调用 -->
+func B(a) []string{
+	ret = []string{}
+	if len(a) == 1 {
+		return []sting{a}
+	}
+
+	tmp := B(a[1:])
+
+	for item := range tmp {
+		for i:=0;i<len(item);i++{
+			ret = append(ret, item[0:i] + a[0] + item[i:])
+		}
+	}
+	return ret
+}
+
 
 
 
