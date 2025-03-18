@@ -1,5 +1,22 @@
+linux
+	线程通信
+	进程通信
+	socket与网络socket区别
+	linux 获取锁的方式
+
+设计
+	短连接服务如何处理
+
+中间件
+	kafka消息不丢失的处理
+
+	服务通信保证不丢失
+
+
 ysmysql acid是啥？ 各自实现是怎么做到哦
 map 数据结构是啥？  chan的数据结构是啥
+
+
 
 redis 备份原理是啥  aof 文件会越来越大  redis 怎么优化的
 

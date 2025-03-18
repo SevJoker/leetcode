@@ -7,7 +7,6 @@ import (
 
 
 //  二分查找
-
 func find2(nums []int,target int) int {
 	left,right := 0,len(nums)-1
 	mid := 0

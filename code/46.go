@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 )
+
 func permute(nums []int) [][]int {
 
 	var ret [][]int
@@ -37,7 +38,7 @@ func backtrack(nums[] int,track []int,trackMap map[int]bool,res [][]int) [][]int
 		trackMap[item] = false
 		track = track[:len(track)-1]
 	}
-    return res
+	return res
 }
 
 

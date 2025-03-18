@@ -5,6 +5,12 @@ import (
 )
 
 
+type ListNode struct {
+    Val int
+ 	Next *ListNode
+ }
+
+
 func QuickSort(arr []int,left,right int) []int {
 	
 	if left < right {
@@ -117,11 +123,108 @@ func B(a string) []string {
 	return ret
 }
 
+
+func Print() {
+
+}
+
+//  微服务 a，b  是否有循环调用
+
+//  dfs遍历即可
+func FindWei() {
+	calls := [][2]string{
+        {"A", "B"},
+        {"B", "C"},
+        {"C", "D"},
+        {"D", "C"},
+    }
+
+    g := make(map[string][]string)
+    for _,item := range calls {
+    	if _,ok:=g[item[0]];ok {
+    		g[item[0]] = append(g[item[0]],item[1])
+    	}else{
+    		g[item[0]] = []string{item[1]}
+    	}
+    }
+
+
+    fmt.Println("-------Find------",Cycle(g))
+}
+
+func Cycle(g map[string][]string) bool {
+	visited := make(map[string]bool)
+	// visitedtmp := make(map[string]bool)
+	for k,_ := range g {
+		if !visited[k] {
+			visited[k] = true
+			visitedtmp := make(map[string]bool)
+			if hasCycle(g,k,visitedtmp) {
+				return true
+			}
+			
+		}
+
+	}
+	return false
+}
+
+func hasCycle(g map[string][]string,node string,visitedtmp map[string]bool) bool {
+	visitedtmp[node] = true
+	v,ok := g[node]
+	if !ok {
+		return false
+	}
+
+	for _,item := range v {
+		if visitedtmp[item] {
+			return true
+		}
+		return hasCycle(g,item,visitedtmp)
+	}
+
+
+	return false
+}
+
+
+//  206 反转链表
+func reverse(head *ListNode) *ListNode {
+	// vh := &ListNode{Next:head}
+
+	var (
+		cur = head
+		pre *ListNode = nil
+	)
+
+	for cur != nil {
+		tmp := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = tmp
+
+	}
+	return pre
+}
+
 func main() {
+
+
+	h := &ListNode{Val:1}
+	h.Next = &ListNode{Val:2}
+	h.Next.Next = &ListNode{Val:3}
+	h.Next.Next.Next = &ListNode{Val:4}
+
+	r := reverse(h)
+	for ;r!=nil; {
+		fmt.Println("---ListNode----",r)
+		r = r.Next	
+	}
 
 	fmt.Println("----1----",B("123"))
 	a := []int{1,2,3,4,5}
 	fmt.Println("----------------------",Find(a,2),Swap(a,1,2))
+	FindWei()
 }
 
 

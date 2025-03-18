@@ -15,7 +15,6 @@ def init():
 	pass
 
 
-
 def selectServer():
 	server = socket(AF_INET, SOCK_STREAM)
 	server.bind(('127.0.0.1',8083))
@@ -56,7 +55,6 @@ def selectServer():
 					print "received "+data.decode()+" from client "+ str(sock)
 					#将接受到的客户端的消息保存下来
 					rdata[sock] = data.decode()
-
 					#将客户端连接对象和这个对象接收到的消息加工成返回消息，并添加到wdata这个字典里面
 					wdata[sock]=data.upper()
 					#需要给这个客户端回复消息的时候，我们将这个连接添加到wlist写监听列表中

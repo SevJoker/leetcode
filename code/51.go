@@ -7,11 +7,8 @@ import (
 
 
 func solveNQueens(n int) [][]string {
-
 	var res [][]string
-
 	var track  = make([][]bool,n)
-
 	for index := range track {
 		track[index] = make([]bool,n)
 	}
